@@ -6,3 +6,17 @@ variable "cluster-name" {
   default = "local-k8s"
   type    = string
 }
+
+variable "addons" {
+  type = list(object({
+    name    = string
+    version = string
+  }))
+
+  default = [
+    {
+      name    = "aws-ebs-csi-driver"
+      version = "v1.11.4-eksbuild.1"
+    }
+  ]
+}

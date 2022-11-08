@@ -3,6 +3,10 @@ kind: Pod
 metadata:
   name: kuard
 spec:
+  volumes:
+  - name: kuard-data
+    persistentVolumeClaim:
+      claimName: kuard-data
   containers:
     - image: gcr.io/kuar-demo/kuard-amd64:1
       name: kuard
@@ -10,6 +14,12 @@ spec:
         requests:
           cpu: 500m
           memory: 128Mi
+        limits:
+          cpu: 1000m
+          memory: 128Mi
+      volumeMounts:
+        - name: kuard-data
+          mountPath: /data
       livenessProbe:
         httpGet:
           path: /healthy
