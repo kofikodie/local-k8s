@@ -90,5 +90,6 @@ resource "aws_eks_node_group" "demo" {
     aws_iam_role_policy_attachment.demo-node-AmazonEKSWorkerNodePolicy,
     aws_iam_role_policy_attachment.demo-node-AmazonEKS_CNI_Policy,
     aws_iam_role_policy_attachment.demo-node-AmazonEC2ContainerRegistryReadOnly,
+    aws_iam_role_policy_attachment.worknode-AmazonEBSCSIDriver
   ]
 }
