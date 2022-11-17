@@ -56,6 +56,15 @@ Download the ArgoCD CLI from the [ArgoCD Releases](https://argo-cd.readthedocs.i
 make argocd-install
 ```
 
+### Access ArgoCD-UI
+
+To access the ArgoCD-UI, you need to run the following command:
+
+```bash
+make argocd-ui
+```
+Now you can access the ArgoCD-UI on http://localhost:8080
+
 ## ArgoCD Login
 
 To login to ArgoCD, you need to run the following command:
