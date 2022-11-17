@@ -23,6 +23,6 @@ spec:
         args:
           - "--keygen-enable"
           - "--keygen-exit-on-complete"
-          - "--keygen-memq-server=http://queue:8080/memq/server"
+          - "--keygen-memq-server=http://queue:8000/memq/server"
           - "--keygen-memq-queue=keygen"
       restartPolicy: OnFailure
