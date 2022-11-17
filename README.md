@@ -39,3 +39,35 @@ Terraform is an open-source infrastructure as code software tool created by Hash
 Additionally this project is using Terraform Cloud to manage the state of the infrastructure. To access the Terraform Cloud, you need to create an account on [Terraform Cloud](https://app.terraform.io/signup/account) and then join the PlanNgo workspace.
 
 Terraform Cloud is a SaaS product that provides a web UI and API for managing Terraform runs. It is a commercial product, but it is free for open source projects.
+
+## ARGOCD
+
+Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. It provides a declarative way to define application delivery: Continuous Deployment, Progressive Delivery, Blue Green Deployments, Automated Rollbacks, etc.
+
+## ArgoCD Installation
+
+### Prerequisites
+
+Download the ArgoCD CLI from the [ArgoCD Releases](https://argo-cd.readthedocs.io/en/stable/cli_installation/) page.
+
+### Install ArgoCD on Kubernetes
+
+```bash
+make argocd-install
+```
+
+## ArgoCD Login
+
+To login to ArgoCD, you need to run the following command:
+
+First you need to get the password for the admin user:
+
+```bash
+make argocd-get-password
+```
+
+Then you need to login to ArgoCD:
+
+```bash
+argocd login localhost:8080 --username admin --password <password>
+```
