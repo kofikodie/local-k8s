@@ -9,9 +9,24 @@ spec:
   - name: kuard-data
     persistentVolumeClaim:
       claimName: kuard-data
+  - name: config-volume
+    configMap:
+      name: my-config
   containers:
     - image: gcr.io/kuar-demo/kuard-amd64:1
       name: kuard
+      imagePullPolicy: Always
+      env:
+        - name: ANOTHER_PARAM
+          valueFrom:
+            configMapKeyRef:
+              name: my-config 
+              key: another-param
+        - name: EXTRA_PARAM
+          valueFrom:
+            configMapKeyRef:
+              name: my-config
+              key: extra-param
       resources:
         requests:
           cpu: 500m
@@ -22,6 +37,9 @@ spec:
       volumeMounts:
         - name: kuard-data
           mountPath: /data
+        - name: config-volume
+          mountPath: /config
+          readOnly: true
       livenessProbe:
         httpGet:
           path: /healthy
