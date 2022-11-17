@@ -4,7 +4,7 @@ metadata:
   name: my-config
   resourceVersion: "1"
 data:
-  another-param: another-value
+  another-param: another-values
   extra-param: extra-value
   my-config: |
     # This is a config file

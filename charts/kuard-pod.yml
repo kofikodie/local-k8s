@@ -12,6 +12,11 @@ spec:
   - name: config-volume
     configMap:
       name: my-config
+  - name: tls-certs
+    secret:
+      secretName: kuard-tls
+  #imagePullSecrets: # This is a list of secrets that can be used to pull images from private registries
+  #  - name:  kube-registry-secret # This is the name of the secret
   containers:
     - image: gcr.io/kuar-demo/kuard-amd64:1
       name: kuard
@@ -39,6 +44,9 @@ spec:
           mountPath: /data
         - name: config-volume
           mountPath: /config
+          readOnly: true
+        - name: tls-certs
+          mountPath: /tls
           readOnly: true
       livenessProbe:
         httpGet:
