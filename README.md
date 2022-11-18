@@ -6,9 +6,20 @@ See that guide for additional information.
 
 NOTE: This full configuration utilizes the [Terraform http provider](https://www.terraform.io/docs/providers/http/index.html) to call out to icanhazip.com to determine your local workstation external IP for easily configuring EC2 Security Group access to the Kubernetes servers. Feel free to replace this as necessary.
 
+
+## Terraform
+
+Terraform is an open-source infrastructure as code software tool created by HashiCorp. Users define and provide data center infrastructure using a declarative configuration language known as HashiCorp Configuration Language, or optionally JSON.
+
+To install Terraform, follow the instructions at https://www.terraform.io/intro/getting-started/install.html
+
+Additionally this project is using Terraform Cloud to manage the state of the infrastructure. To access the Terraform Cloud, you need to create an account on [Terraform Cloud](https://app.terraform.io/signup/account) and create an workspace for this project.
+
+Terraform Cloud is a SaaS product that provides a web UI and API for managing Terraform runs. It is a commercial product, but it is free for open source projects. Once you have created an account, you can create a workspace for this project. You can also use the [Terraform Cloud CLI](https://www.terraform.io/docs/cloud/run/cli.html) to manage the state of the infrastructure.
+
 ## Getting started
 
-You need to install [Terraform](https://www.terraform.io/intro) and then run the following commands:
+To initialize the project, run the following commands:
 
 ```bash
 terraform init
@@ -30,15 +41,6 @@ terraform destroy -auto-approve
 ```bash
 terraform output kubeconfig > ~/.kube/config
 ```
-
-## Terraform
-
-Terraform is an open-source infrastructure as code software tool created by HashiCorp. Users define and provide data center infrastructure using a declarative configuration language known as HashiCorp Configuration Language, or optionally JSON.
-
-## Terraform Cloud
-Additionally this project is using Terraform Cloud to manage the state of the infrastructure. To access the Terraform Cloud, you need to create an account on [Terraform Cloud](https://app.terraform.io/signup/account) and then join the PlanNgo workspace.
-
-Terraform Cloud is a SaaS product that provides a web UI and API for managing Terraform runs. It is a commercial product, but it is free for open source projects.
 
 ## ARGOCD
 
