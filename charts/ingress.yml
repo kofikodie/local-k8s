@@ -1,0 +1,41 @@
+#apiVersion: networking.k8s.io/v1
+#kind: Ingress
+#metadata:
+#  name: kuard-ingress
+#  annotations:
+#    nginx.ingress.kubernetes.io/rewrite-target: /$2
+#spec:
+#  ingressClassName: nginx
+#  rules:
+#    - host: www.kuard.com
+#      http:
+#        paths:
+#          - path: /app(/|$)(.*)
+#            pathType: Prefix
+#            backend:
+#              service:
+#                name: kuard
+#                port:
+#                  number: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: argocd-server-ingress
+  namespace: argocd
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+spec:
+  rules:
+  - host: a6a2e6ebde1124a61ad64325b182a382-e6407430801e8455.elb.eu-west-1.amazonaws.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: argocd-server
+            port:
+              name: https
