@@ -25,6 +25,18 @@ To initialize the project, run the following commands:
 terraform init
 ```
 
+To format the hcl files, you can run the following command:
+
+```bash
+terraform fmt
+```
+
+Before you can check the changes that will be applied
+
+```bash
+terraform plan
+```
+
 Once the initialization is done, you can run the following command to apply any changes:
 
 ```bash
@@ -36,6 +48,7 @@ To destroy the infrastructure, you can run the following command:
 ```bash
 terraform destroy -auto-approve
 ```
+
 ## Connecting to the cluster
 
 ```bash
