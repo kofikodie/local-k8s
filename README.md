@@ -82,3 +82,20 @@ Then you need to login to ArgoCD:
 ```bash
 argocd login localhost:8080 --username admin --password <password>
 ```
+
+## ArgoCD Deployments
+
+### Deploying the application from git repository
+
+To deploy the application from git repository, you need to first:
+
+set the current namespace to argocd running the following command: 
+```bash
+kubectl config set-context --current --namespace=argocd
+```
+
+Then you need to run the following command:
+
+```bash
+argocd app create guestbook --repo <url_git_repo> --path <path> --dest-server https://kubernetes.default.svc --dest-namespace default --sync-policy automated
+```
