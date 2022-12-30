@@ -6,7 +6,7 @@ See that guide for additional information.
 
 NOTE: This full configuration utilizes the [Terraform http provider](https://www.terraform.io/docs/providers/http/index.html) to call out to icanhazip.com to determine your local workstation external IP for easily configuring EC2 Security Group access to the Kubernetes servers. Feel free to replace this as necessary.
 
-
+This configuration also includes an addons resource for creating an [AWS elastic block store](https://aws.amazon.com/ebs/) (EBS) volume and mounting it to the Kubernetes worker nodes. This is useful for storing persistent data on the worker nodes. This is not required for the EKS cluster to function.
 ## Terraform
 
 Terraform is an open-source infrastructure as code software tool created by HashiCorp. Users define and provide data center infrastructure using a declarative configuration language known as HashiCorp Configuration Language, or optionally JSON.
