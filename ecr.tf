@@ -11,5 +11,3 @@ resource "aws_ecr_repository" "isolates-repo" {
 
   force_delete = true
 }
-
-
