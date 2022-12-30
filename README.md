@@ -78,7 +78,16 @@ To access the ArgoCD-UI, you need to run the following command:
 ```bash
 make argocd-ui
 ```
+
 Now you can access the ArgoCD-UI on http://localhost:8080
+
+Alternatively, you can create a load balancer service for the argocd-server service to access the ArgoCD-UI from outside the cluster.
+
+```bash
+make argocd-ui-lb
+```
+
+Now you can access the ArgoCD-UI on http://<load_balancer_dns_name>
 
 ## ArgoCD Login
 
@@ -96,6 +105,12 @@ Then you need to login to ArgoCD:
 argocd login localhost:8080 --username admin --password <password>
 ```
 
+In case you have created a load balancer service for the argocd-server service, you need to run the following command:
+
+```bash
+argocd login <load_balancer_dns_name> --username admin --password <password>
+```
+
 ## ArgoCD Deployments
 
 ### Deploying the application from git repository
@@ -110,5 +125,5 @@ kubectl config set-context --current --namespace=argocd
 Then you need to run the following command:
 
 ```bash
-argocd app create guestbook --repo <url_git_repo> --path <path> --dest-server https://kubernetes.default.svc --dest-namespace default --sync-policy automated
+argocd app create <application_name> --repo <url_git_repo> --path <path> --dest-server https://kubernetes.default.svc --dest-namespace default --sync-policy automated
 ```
