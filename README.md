@@ -127,3 +127,42 @@ Then you need to run the following command:
 ```bash
 argocd app create <application_name> --repo <url_git_repo> --path <path> --dest-server https://kubernetes.default.svc --dest-namespace default --sync-policy automated
 ```
+
+## OPA Gatekeeper
+
+OPA Gatekeeper is a policy engine for Kubernetes. It allows you to define custom policies that are enforced when resources are created or updated.
+
+## OPA Gatekeeper Installation
+
+To deploy OPA Gatekeeper, you need to run the following command:
+
+```bash
+make opa
+```
+
+To verify that the OPA Gatekeeper is running, you need to run the following command:
+
+```bash
+kubectl get pods -n gatekeeper-system
+```
+
+For more information about OPA Gatekeeper, you can visit the [Using Open Policy Agent (OPA) for policy-based control in EKS](https://www.eksworkshop.com/intermediate/310_opa_gatekeeper) page.
+
+## KEDA
+
+KEDA is a Kubernetes-based event-driven autoscaling component. It allows you to define custom policies that are enforced when resources are created or updated.
+
+## KEDA Installation
+
+### Prerequisites
+To configure KEDA, you need to install the metrics server. To install the metrics server, you need to run the following command:
+
+```bash
+make metrics-server
+```
+
+To deploy KEDA, you need to run the following command:
+
+```bash
+make keda
+```
