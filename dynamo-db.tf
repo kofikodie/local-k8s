@@ -1,6 +1,6 @@
 resource "aws_dynamodb_table" "db" {
     name           = "terraform-dynamodb-demo"
-    billing_mode   = "PAY_PER_REQUEST"
+    billing_mode   = "PROVISIONED"
     hash_key       = "id"
     range_key      = "name"
     read_capacity  = 1
