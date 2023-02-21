@@ -31,28 +31,14 @@ To format the hcl files, you can run the following command:
 terraform fmt
 ```
 
-Before you can check the changes that will be applied
+To add new resources to the project, open a pr. Once the pr is merged, the changes be will automatically be apply.
 
-```bash
-terraform plan
-```
-
-Once the initialization is done, you can run the following command to apply any changes:
-
-```bash
-terraform apply -auto-approve
-```
-
-To destroy the infrastructure, you can run the following command:
-
-```bash
-terraform destroy -auto-approve
-```
+This project is using [Infracost](https://www.infracost.io/) to estimate the cost of the infrastructure. Once a pr is opened, Infracost will automatically add a comment with the estimated cost of the infrastructure.
 
 ## Connecting to the cluster
 
 ```bash
-terraform output kubeconfig > ~/.kube/config
+aws eks update-kubeconfig --name <cluster_name>
 ```
 
 ## ARGOCD
