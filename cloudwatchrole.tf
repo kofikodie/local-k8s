@@ -15,8 +15,8 @@ resource "aws_iam_role" "grafana_cloudwatch_role" {
 }
 
 resource "aws_iam_policy" "cloudwatch_logs_readonly" {
-  name        = "CloudWatchLogsReadOnly"
-  policy      = jsonencode({
+  name = "CloudWatchLogsReadOnly"
+  policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
       {
