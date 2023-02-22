@@ -34,11 +34,6 @@ resource "aws_iam_role_policy_attachment" "demo-cluster-AmazonEKSVPCResourceCont
   role       = aws_iam_role.demo-cluster.name
 }
 
-resource "aws_iam_role_policy_attachment" "cloudwatch_eks_logs_metrics_policy" {
-  policy_arn = aws_iam_policy.cloudwatch_logs_metrics_policy.arn
-  role       = aws_iam_role.demo-cluster.name
-}
-
 resource "aws_security_group" "demo-cluster" {
   name        = "terraform-eks-demo-cluster"
   description = "Cluster communication with worker nodes"

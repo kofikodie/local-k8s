@@ -73,6 +73,11 @@ resource "aws_iam_role_policy_attachment" "demo-node-AmazonEC2ContainerRegistryR
   role       = aws_iam_role.demo-node.name
 }
 
+resource "aws_iam_role_policy_attachment" "cloudwatch_eks_logs_metrics_policy" {
+  policy_arn = aws_iam_policy.cloudwatch_logs_metrics_policy.arn
+  role       = aws_iam_role.demo-node.name
+}
+
 resource "aws_eks_node_group" "demo" {
   cluster_name    = aws_eks_cluster.demo.name
   node_group_name = "demo"
