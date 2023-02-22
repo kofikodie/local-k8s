@@ -68,6 +68,6 @@ resource "aws_iam_policy" "cloudwatch_logs_metrics_policy" {
 
 
 resource "aws_iam_role_policy_attachment" "cloudwatch_logs_readonly_attachment" {
-  policy_arn = aws_iam_policy.cloudwatch_logs_readonly.arn
+  policy_arn = aws_iam_policy.cloudwatch_logs_metrics_policy.arn
   role       = aws_iam_role.grafana_cloudwatch_role.name
 }
