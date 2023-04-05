@@ -3,7 +3,7 @@ variable "aws_region" {
 }
 
 variable "cluster_name" {
-  default = "karpenter-demo"
+  default = "karpenter-eks"
   type    = string
 }
 
