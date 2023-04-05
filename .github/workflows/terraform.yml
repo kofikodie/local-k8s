@@ -31,6 +31,8 @@ jobs:
         id: plan
         if: github.event_name == 'pull_request'
         run: terraform plan -no-color -input=false
+        env:
+          TF_CLI_CONFIG_FILE: ${{ github.workspace }}/.terraformrc
         continue-on-error: true
       - name: Update Pull Request
         uses: actions/github-script@v6
