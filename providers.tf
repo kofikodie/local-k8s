@@ -29,7 +29,7 @@ provider "aws" {
 
 provider "aws" {
   region = "us-east-1"
-  alias = "virginia"
+  alias  = "virginia"
 }
 locals {
   cluster_name = "karpenter-demo"
