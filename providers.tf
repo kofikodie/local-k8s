@@ -28,11 +28,11 @@ provider "aws" {
 }
 
 provider "aws" {
-  region = "us-east-1"
   alias  = "virginia"
+  region = "us-east-1"
 }
 locals {
-  cluster_name = "karpenter-demo"
+  cluster_name = var.cluster_name
 
   # Used to determine correct partition (i.e. - `aws`, `aws-gov`, `aws-cn`, etc.)
   partition = data.aws_partition.current.partition

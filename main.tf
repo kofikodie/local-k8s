@@ -31,7 +31,7 @@ module "eks" {
   version = "18.31.0"
 
   cluster_name    = local.cluster_name
-  cluster_version = "1.24"
+  cluster_version = "1.25"
 
   vpc_id     = module.vpc.vpc_id
   subnet_ids = module.vpc.private_subnets
@@ -62,7 +62,7 @@ module "eks" {
   # so that Karpenter can be deployed and start managing compute capacity as required
   eks_managed_node_groups = {
     initial = {
-      instance_types = ["m5.large"]
+      instance_types = ["t3.medium"]
       # Not required nor used - avoid tagging two security groups with same tag as well
       create_security_group = false
 
@@ -143,5 +143,17 @@ resource "kubectl_manifest" "karpenter_node_template" {
 
   depends_on = [
     helm_release.karpenter
+  ]
+}
+
+resource "aws_eks_addon" "addons" {
+  for_each          = { for addon in var.addons : addon.name => addon }
+  cluster_name      = local.cluster_name
+  addon_name        = each.value.name
+  addon_version     = each.value.version
+  resolve_conflicts = "OVERWRITE"
+
+  depends_on = [
+    module.eks
   ]
 }
