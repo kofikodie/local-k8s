@@ -1,10 +1,8 @@
 # EKS Getting Started Guide Configuration
 
-This is the full configuration from https://www.terraform.io/docs/providers/aws/guides/eks-getting-started.html
-
+This configuration is a getting started guide for creating an [Amazon Elastic Kubernetes Service](https://aws.amazon.com/eks/) (EKS) cluster. This configuration is based on Karpenter's [EKS Getting Started Guide](https://karpenter.sh/v0.20.0/getting-started/getting-started-with-terraform/).
 See that guide for additional information.
 
-NOTE: This full configuration utilizes the [Terraform http provider](https://www.terraform.io/docs/providers/http/index.html) to call out to icanhazip.com to determine your local workstation external IP for easily configuring EC2 Security Group access to the Kubernetes servers. Feel free to replace this as necessary.
 
 This configuration also includes an addons resource for creating an [AWS elastic block store](https://aws.amazon.com/ebs/) (EBS) volume and mounting it to the Kubernetes worker nodes. This is useful for storing persistent data on the worker nodes. This is not required for the EKS cluster to function.
 ## Terraform
