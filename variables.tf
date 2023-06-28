@@ -2,8 +2,8 @@ variable "aws_region" {
   default = "eu-west-1"
 }
 
-variable "cluster_name" {
-  default = "karpenter-eks"
+variable "cluster-name" {
+  default = "local-k8s"
   type    = string
 }
 
